@@ -40,6 +40,18 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textResultado);
 
         int opcaoApp = new Random().nextInt(3);
+
+        switch (opcaoApp){
+            case 0:
+                imageResultado.setImageResource(R.drawable.pedra);
+                break;
+            case 1:
+                imageResultado.setImageResource(R.drawable.papel);
+                break;
+            case 2:
+                imageResultado.setImageResource(R.drawable.tesoura);
+                break;
+        }
     }
 
 }
