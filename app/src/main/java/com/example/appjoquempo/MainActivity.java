@@ -1,5 +1,6 @@
 package com.example.appjoquempo;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void opcaoSelecionado(int opcaoUsuario){
         ImageView imageResultado = findViewById(R.id.imageResultado);
-        TextView textView = findViewById(R.id.textResultado);
+        TextView textResultado = findViewById(R.id.textResultado);
 
         int opcaoApp = new Random().nextInt(3);
 
@@ -52,6 +53,26 @@ public class MainActivity extends AppCompatActivity {
                 imageResultado.setImageResource(R.drawable.tesoura);
                 break;
         }
+
+        if(
+                (opcaoApp == 2 && opcaoUsuario == 1) ||
+                (opcaoApp == 1 && opcaoUsuario == 0) ||
+                (opcaoApp == 0 && opcaoUsuario == 2)
+        ) { // Logica quando o App ganha
+            textResultado.setText("Você perdeu :(");
+            textResultado.setTextColor(getResources().getColor(R.color.red));
+        } else if(
+                (opcaoUsuario == 2 && opcaoApp == 1) ||
+                (opcaoUsuario == 1 && opcaoApp == 0) ||
+                (opcaoUsuario == 0 && opcaoApp == 2)
+        ) { // Logica quando o usuario ganha
+            textResultado.setText("Você ganhou :)");
+            textResultado.setTextColor(getResources().getColor(R.color.verde));
+        } else { // logica quando haver empate
+            textResultado.setText("Empatou ;)");
+            textResultado.setTextColor(getResources().getColor(R.color.black));
+        }
+
     }
 
 }
